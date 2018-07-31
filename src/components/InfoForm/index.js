@@ -45,7 +45,7 @@ class InfoForm extends React.Component {
               break;
           }
           return (
-            <div key={ name }>
+            <div key={ name } className="form-group">
               { type !== 'checkbox' && <label htmlFor={ name }>{ label }</label> }
               { inputComponent }
             </div>

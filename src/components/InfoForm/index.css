@@ -1,0 +1,26 @@
+.form-group {
+  padding: .5em 1em;
+}
+
+.form-group > label {
+  font-weight: bold;
+  display: block;
+  padding-bottom: .25em;
+}
+
+input {
+  font-size: 1em;
+  padding:.375em .75em;
+  border: 1.5px solid #ced4da;
+  border-radius: .25em;
+  transition: box-shadow 150ms ease-in-out, border-color 150ms ease-in-out;
+}
+input:hover, input:focus {
+  border-color: #91979b;
+}
+input[type='number']:focus {
+  border-color: #51ace9;
+}
+input::placeholder {
+  color: #a5a5a5;
+}
