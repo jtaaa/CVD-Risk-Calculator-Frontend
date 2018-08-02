@@ -1,0 +1,15 @@
+.checkbox-group > input {
+  appearance: none;
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+  padding: 0;
+  vertical-align: middle;
+}
+.checkbox-group > input:checked {
+  background-color: #51ace9;
+}
+
+.checkbox-group > label {
+  padding-left: .5em;
+}
