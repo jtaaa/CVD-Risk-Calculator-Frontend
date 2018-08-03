@@ -20,6 +20,7 @@ class InfoForm extends React.Component {
     this.state = this.initialState;
 
     this.handleChange = this.handleChange.bind(this);
+    this.onBlur = this.onBlur.bind(this);
     this.submit = this.submit.bind(this);
   }
 
@@ -48,9 +49,20 @@ class InfoForm extends React.Component {
     return { valid: true,  message: '' };
   }
 
-  handleChange(name, fieldIndex) {
+  onBlur(name, fieldIndex) {
     return value => {
       let { valid, message } = this.validate(value, fieldIndex);
+      this.setState({
+        validation: { ...this.state.validation, [name]: { valid, message } },
+      });
+    }
+  }
+
+  handleChange(name, fieldIndex) {
+    return value => {
+      let { valid, message } = !this.state.validation[name].valid
+          ? this.validate(value, fieldIndex)
+          : this.state.validation[name];
       this.setState({
         response: { ...this.state.response, [name]: value },
         validation: { ...this.state.validation, [name]: { valid, message } },
@@ -59,9 +71,9 @@ class InfoForm extends React.Component {
   }
 
   submit() {
-    const validation = Object.keys(this.state.validation).reduce((acc, fieldKey) => {
+    const validation = this.props.fields.reduce((acc, { name: fieldKey }, fieldIndex) => {
       if (fieldKey !== 'valid') {
-        acc[fieldKey] = this.checkEmpty(this.state.response[fieldKey]);
+        acc[fieldKey] = this.validate(this.state.response[fieldKey], fieldIndex);
         if (!acc[fieldKey].valid) { acc.valid = false }
       }
       return acc;
@@ -85,7 +97,8 @@ class InfoForm extends React.Component {
                     name={ name }
                     placeholder={ placeholder }
                     value={ this.state.response[name] }
-                    handleChange={ this.handleChange(name, fieldIndex) } />
+                    handleChange={ this.handleChange(name, fieldIndex) }
+                    onBlur={ this.onBlur(name, fieldIndex) } />
               );
               break;
             }
@@ -95,7 +108,8 @@ class InfoForm extends React.Component {
                     name={ name }
                     options={ options }
                     value={ this.state.response[name] }
-                    handleChange={ this.handleChange(name, fieldIndex) } />
+                    handleChange={ this.handleChange(name, fieldIndex) }
+                    onBlur={ this.onBlur(name, fieldIndex) } />
               );
               break;
             }
@@ -105,7 +119,8 @@ class InfoForm extends React.Component {
                     label={ label }
                     name={ name }
                     value={ this.state.response[name] }
-                    handleChange={ this.handleChange(name, fieldIndex) } />
+                    handleChange={ this.handleChange(name, fieldIndex) }
+                    onBlur={ this.onBlur(name, fieldIndex) } />
               );
               break;
             }
