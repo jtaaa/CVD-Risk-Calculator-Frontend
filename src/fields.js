@@ -4,6 +4,8 @@ const fields = [
     name: 'age',
     placeholder: 'Age',
     type: 'number',
+    min: 20,
+    max: 105,
   },
   {
     label: 'Sex',
