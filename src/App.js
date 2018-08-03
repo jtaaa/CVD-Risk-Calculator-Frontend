@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <InfoForm fields={ fields }></InfoForm>
+        <InfoForm fields={ fields } onSubmit={ res => console.log(res) } />
       </div>
     );
   }

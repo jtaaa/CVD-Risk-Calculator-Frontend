@@ -1,5 +1,11 @@
 .form-group {
+  display: flex;
+  flex-direction: column;
   padding: .5em 1em;
+}
+
+.form-group > input, .form-group > .error-message {
+  width: 16em;
 }
 
 .form-group > label {
@@ -13,6 +19,7 @@ input {
   padding:.375em .75em;
   border: 1.5px solid #ced4da;
   border-radius: .25em;
+  z-index: 1;
   transition: box-shadow 150ms ease-in-out, border-color 150ms ease-in-out;
 }
 input:hover, input:focus {
@@ -23,4 +30,18 @@ input[type='number']:focus {
 }
 input::placeholder {
   color: #a5a5a5;
+}
+
+.error-message {
+  color: #f03737;
+  margin-top: .25em;
+  padding: .25em .845em;
+  border-radius: .25em;
+  background-color: #f6e2e2;
+}
+input + .error-message {
+  margin-top: -.2em;
+  padding-top: .45em;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
