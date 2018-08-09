@@ -1,8 +1,13 @@
 .option-group > input {
   margin-right: .5em;
   background-color: white;
+  cursor: pointer;
 }
 
 .option-group > .selected {
   box-shadow: 0px 0px 0px .15em #51ace9;
+}
+
+.option-group > .selected:focus {
+  border-color: #707579;
 }

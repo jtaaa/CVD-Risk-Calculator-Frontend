@@ -5,11 +5,19 @@
   width: 1em;
   padding: 0;
   vertical-align: middle;
+  cursor: pointer;
 }
 .checkbox-group > input:checked {
   background-color: #51ace9;
 }
-
+.checkbox-group > input:checked:focus {
+  border-color: #707579;
+}
 .checkbox-group > label {
   padding-left: .5em;
+  cursor: pointer;
+  transition: padding-left 100ms ease-in-out;
+}
+input:focus + label, .checkbox-group > label:hover {
+  padding-left: .75em;
 }

@@ -23,25 +23,51 @@ input {
   transition: box-shadow 150ms ease-in-out, border-color 150ms ease-in-out;
 }
 input:hover, input:focus {
-  border-color: #91979b;
+  border-color: #707579;
 }
-input[type='number']:focus {
+input:focus {
   border-color: #51ace9;
 }
 input::placeholder {
   color: #a5a5a5;
 }
 
+.submit-button {
+  margin-top: 1em;
+}
+
 .error-message {
   color: #f03737;
-  margin-top: .25em;
-  padding: .25em .845em;
+  margin-left: .375em;
+  padding: .45em .845em;
   border-radius: .25em;
   background-color: #f6e2e2;
 }
 input + .error-message {
-  margin-top: -.2em;
-  padding-top: .45em;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  margin-left: .75em;
+}
+
+.form-header {
+  text-align: center;
+}
+
+.input-error-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.show-error-enter {
+  opacity: 0.01;
+}
+.show-error-enter.show-error-enter-active {
+  opacity: 1;
+  transition: opacity 200ms ease-in;
+}
+.show-error-leave {
+  opacity: 1;
+}
+.show-error-leave.show-error-leave-active {
+  opacity: 0.01;
+  transition: opacity 100ms ease-in;
 }

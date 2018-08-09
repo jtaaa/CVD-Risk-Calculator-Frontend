@@ -1,4 +1,5 @@
 import React from 'react';
+import { CSSTransitionGroup } from 'react-transition-group';
 import './index.css';
 
 import NumericInput from './../NumericInput';
@@ -75,18 +76,21 @@ class InfoForm extends React.Component {
       if (fieldKey !== 'valid') {
         acc[fieldKey] = this.validate(this.state.response[fieldKey], fieldIndex);
         if (!acc[fieldKey].valid) { acc.valid = false }
+        if (!acc.firstError && !acc[fieldKey].valid) { acc.firstError = document.getElementById(fieldKey); }
       }
       return acc;
-    }, { valid: true });
+    }, { valid: true, firstError: null });
     this.setState({
       validation
     });
     if (validation.valid) { this.props.onSubmit(this.state.response); }
+    else { validation.firstError.scrollIntoView({ block: 'start', behavior: 'smooth' }); }
   }
 
   render() {
     return (
       <form>
+        <h1 className="form-header">{ this.props.header }</h1>
         {this.props.fields.map((field, fieldIndex) => {
           let inputComponent = null;
           const { name, label, type, placeholder = null, options = null } = field;
@@ -129,14 +133,19 @@ class InfoForm extends React.Component {
           }
           const { valid, message } = this.state.validation[name];
           return (
-            <div key={ name } className="form-group">
+            <div id={ name } key={ name } className="form-group">
               { type !== 'checkbox' && <label htmlFor={ name }>{ label }</label> }
-              { inputComponent }
-              { !valid && <div className="error-message">{ message }</div> }
+              <div className="input-error-container">
+                { inputComponent }
+                <CSSTransitionGroup
+                    transitionName="show-error">
+                  { !valid && <div className="error-message">{ message }</div> }
+                </CSSTransitionGroup>
+              </div>
             </div>
           );
         })}
-        <button type="button" onClick={ this.submit }>Submit!</button>
+        <input type="button" value="Submit!" className="submit-button" onClick={ this.submit } />
       </form>
     );
   }
