@@ -87,6 +87,7 @@ class InfoForm extends React.Component {
   render() {
     return (
       <form>
+        <h1 className="form-header">{ this.props.header }</h1>
         {this.props.fields.map((field, fieldIndex) => {
           let inputComponent = null;
           const { name, label, type, placeholder = null, options = null } = field;
