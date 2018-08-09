@@ -6,10 +6,10 @@ const CheckBox = ({ label, name, handleChange, onBlur }) => (
     <input 
         type="checkbox"
         name={ name }
-        id={ name }
+        id={ `check-box-${ name }` }
         onChange={ ({ target: { checked } }) => handleChange(checked) }
         onBlur={ ({ target: { checked } }) => onBlur(checked) } />
-    <label htmlFor={ name }>{ label }</label>
+    <label htmlFor={ `check-box-${ name }` }>{ label }</label>
   </div>
 );
 
