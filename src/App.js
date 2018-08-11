@@ -10,7 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { page: 0 }
+    this.state = { page: 0, score: {} }
 
     this.toFormPage          = this.toFormPage.bind(this);
     this.toSubmittedPage     = this.toSubmittedPage.bind(this);
@@ -32,9 +32,9 @@ class App extends Component {
             fields={ fields }
             onSubmit={ data => getScore(data, true).then(this.setScoreAndToSubmit(data)) } />}
         {this.state.page === 1 &&
-        <div>
+        <div className="score-card">
           <div className="score-message">{ this.state.score.message }</div>
-          <div onClick={ this.toFormPage }>Back</div>
+          <button onClick={ this.toFormPage }>Back</button>
         </div>}
       </div>
     );
