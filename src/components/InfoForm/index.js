@@ -89,7 +89,7 @@ class InfoForm extends React.Component {
 
   render() {
     return (
-      <form>
+      <form className="info-form">
         <h1 className="form-header">{ this.props.header }</h1>
         {this.props.fields.map((field, fieldIndex) => {
           let inputComponent = null;

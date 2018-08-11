@@ -1,8 +1,19 @@
 .App {
-  width: 90%;
+  width: 95%;
   max-width: 720px;
   margin: 1em auto;
-  padding: 1em;
   border-radius: 4px;
-  background-color: #fafafa;
 }
+
+.score-card {
+  margin-top: 200px;
+  padding: 2em;
+  border-radius: .25em;
+  border: 1px solid #c2c2c2;
+}
+
+.score-message {
+  font-size: 1.25em;
+  margin-bottom: 2em;
+}
+
