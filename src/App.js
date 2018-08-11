@@ -30,7 +30,7 @@ class App extends Component {
         <InfoForm
             header="Cardiovascular Disease Risk Calculator" 
             fields={ fields }
-            onSubmit={ data => getScore(data, true).then(this.setScoreAndToSubmit(data)) } />}
+            onSubmit={ data => getScore(data, true).then(res => this.setScoreAndToSubmit(res)) } />}
         {this.state.page === 1 &&
         <div className="score-card">
           <div className="score-message">{ this.state.score.message }</div>
