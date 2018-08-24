@@ -37,7 +37,7 @@ class InfoForm extends React.Component {
       return { valid: false, message: ErrorMessages.TOO_SMALL(min) };
     }
     if (max && value > max) {
-      return { valid: false, message: ErrorMessages.TOO_LARGE(min) };
+      return { valid: false, message: ErrorMessages.TOO_LARGE(max) };
     }
     return { valid: true,  message: '' };
   }
@@ -89,7 +89,7 @@ class InfoForm extends React.Component {
 
   render() {
     return (
-      <form>
+      <form className="info-form">
         <h1 className="form-header">{ this.props.header }</h1>
         {this.props.fields.map((field, fieldIndex) => {
           let inputComponent = null;
