@@ -1,0 +1,10 @@
+.header {
+  padding-top: 2em;
+  padding-bottom: 1.5em;
+  border-bottom: .15em solid black;
+}
+
+.title {
+  margin-left: 1em;
+  font-size: 1.5em;
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import InfoForm from './components/InfoForm';
+import Header from './components/Header';
 
 import fields from './fields';
 import { getScore } from './actions';
@@ -26,16 +27,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.state.page === 0 &&
-        <InfoForm
-            header="Cardiovascular Disease Risk Calculator" 
-            fields={ fields }
-            onSubmit={ data => getScore(data, true).then(({ data: score }) => this.setScoreAndToSubmit(score)) } />}
-        {this.state.page === 1 &&
-        <div className="score-card">
-          <div className="score-message">{ this.state.score.message }</div>
-          <button onClick={ this.toFormPage }>Back</button>
-        </div>}
+        <Header />
+        <div className="body">
+          {this.state.page === 0 &&
+          <InfoForm
+              fields={ fields }
+              onSubmit={ data => getScore(data, true).then(({ data: score }) => this.setScoreAndToSubmit(score)) } />}
+          {this.state.page === 1 &&
+          <div className="score-card">
+            <div className="score-message">{ this.state.score.message }</div>
+            <button onClick={ this.toFormPage }>Back</button>
+          </div>}
+        </div>
       </div>
     );
   }

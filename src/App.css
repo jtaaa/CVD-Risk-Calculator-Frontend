@@ -1,8 +1,11 @@
 .App {
   width: 95%;
-  max-width: 720px;
-  margin: 1em auto;
-  border-radius: 4px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.body {
+  margin-top: 1em;
 }
 
 .score-card {
