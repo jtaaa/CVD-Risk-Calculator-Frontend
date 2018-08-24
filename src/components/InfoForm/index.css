@@ -1,4 +1,5 @@
 .info-form {
+  max-width: 550px;
   background-color: #fafafa;
   padding: 1em 2em;
 }
@@ -11,6 +12,7 @@
   display: flex;
   flex-direction: column;
   padding: .5em 1em;
+  font-size: .75em;
 }
 
 .form-group > input, .form-group > .error-message {
@@ -24,7 +26,6 @@
 }
 
 input {
-  font-size: 1em;
   padding:.375em .75em;
   border: 1.5px solid #ced4da;
   border-radius: .25em;

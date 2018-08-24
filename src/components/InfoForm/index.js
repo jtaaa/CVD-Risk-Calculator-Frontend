@@ -138,8 +138,10 @@ class InfoForm extends React.Component {
               <div className="input-error-container">
                 { inputComponent }
                 <CSSTransitionGroup
-                    transitionName="show-error">
-                  { !valid && <div className="error-message">{ message }</div> }
+                    transitionName="show-error"
+                    transitionEnterTimeout={0}
+                    transitionLeaveTimeout={0}>
+                  { !valid && <div className="error-message" key="error">{ message }</div> }
                 </CSSTransitionGroup>
               </div>
             </div>
