@@ -29,15 +29,21 @@ class App extends Component {
       <div className="App">
         <Header />
         <div className="body">
-          {this.state.page === 0 &&
-          <InfoForm
-              fields={ fields }
-              onSubmit={ data => getScore(data, true).then(({ data: score }) => this.setScoreAndToSubmit(score)) } />}
-          {this.state.page === 1 &&
-          <div className="score-card">
-            <div className="score-message">{ this.state.score.message }</div>
-            <button onClick={ this.toFormPage }>Back</button>
-          </div>}
+          <div className="side-info">
+            <h3>About</h3>
+            <p>This app calculates your risk of having a cardiovascular disease.</p>
+            <h3>Algorithm</h3>
+            <p>Created by Professor Amelia Hosein at UTT, the algorithm...</p>
+            <h3>Target Population</h3>
+            <p>Caribbean adults from age 18 to 75 who are not pregnant.</p>
+            <h3>How to get Cholestoral Levels</h3>
+            <p>See your doctor to get a lipid profile and your blood pressure readings.</p>
+          </div>
+          <div className="info-form">
+            <InfoForm
+                fields={ fields }
+                onSubmit={ data => getScore(data, true).then(({ data: score }) => this.setScoreAndToSubmit(score)) } />
+          </div>
         </div>
       </div>
     );

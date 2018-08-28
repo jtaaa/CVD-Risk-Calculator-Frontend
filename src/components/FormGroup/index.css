@@ -1,0 +1,29 @@
+.form-group {
+  flex: 3;
+  margin: 1em 1em;
+  min-width: 15em;
+}
+
+.form-group-wide {
+  min-width: 20em;
+  flex: 5;
+}
+
+label {
+  display: block;
+  margin-bottom: .4em;
+}
+.subtext {
+  font-size: .8em;
+}
+
+input {
+  width: 100%;
+}
+
+.button-list {
+  display: flex;
+}
+input[type=button] {
+  flex: 1;
+}

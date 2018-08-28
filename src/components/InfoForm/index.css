@@ -1,18 +1,30 @@
-.info-form {
-  max-width: 550px;
-  background-color: #fafafa;
-  padding: 1em 2em;
+.full-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.form-header {
-  text-align: center;
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
 }
 
+.divider {
+  margin: 1em 0;
+  border-bottom: 1px solid grey;
+}
+
+.spacer {
+  flex: 3;
+  margin: 0 1em;
+  min-width: 15em;
+}
+/* 
 .form-group {
   display: flex;
   flex-direction: column;
   padding: .5em 1em;
-  font-size: .75em;
+  font-size: .85em;
 }
 
 .form-group > input, .form-group > .error-message {
@@ -80,4 +92,4 @@ input + .error-message {
 .show-error-leave.show-error-leave-active {
   opacity: 0.01;
   transition: opacity 100ms ease-in;
-}
+} */

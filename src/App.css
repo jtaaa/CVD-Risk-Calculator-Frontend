@@ -1,11 +1,26 @@
 .App {
   width: 95%;
-  max-width: 900px;
   margin: 0 auto;
 }
 
 .body {
   margin-top: 1em;
+}
+@media screen and (min-width: 1200px) {
+  .body {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
+
+.info-form {
+  flex: 2;
+  align-self: stretch;
+}
+
+.side-info {
+  flex: 1;
+  margin: 0 2em;
 }
 
 .score-card {

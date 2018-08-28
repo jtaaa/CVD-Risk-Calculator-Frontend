@@ -5,6 +5,7 @@ import './index.css';
 import NumericInput from './../NumericInput';
 import OptionGroup from './../OptionGroup';
 import CheckBox from './../CheckBox';
+import FormGroup from './../FormGroup';
 
 import ErrorMessages from './ErrorMessages';
 
@@ -89,65 +90,38 @@ class InfoForm extends React.Component {
 
   render() {
     return (
-      <form className="info-form">
-        <h1 className="form-header">{ this.props.header }</h1>
-        {this.props.fields.map((field, fieldIndex) => {
-          let inputComponent = null;
-          const { name, label, type, placeholder = null, options = null } = field;
-          switch(type) {
-            case 'number': {
-              inputComponent = (
-                <NumericInput 
-                    name={ name }
-                    placeholder={ placeholder }
-                    value={ this.state.response[name] }
-                    handleChange={ this.handleChange(name, fieldIndex) }
-                    onBlur={ this.onBlur(name, fieldIndex) } />
-              );
-              break;
-            }
-            case 'option': {
-              inputComponent = (
-                <OptionGroup
-                    name={ name }
-                    options={ options }
-                    value={ this.state.response[name] }
-                    handleChange={ this.handleChange(name, fieldIndex) }
-                    onBlur={ this.onBlur(name, fieldIndex) } />
-              );
-              break;
-            }
-            case 'checkbox': {
-              inputComponent = (
-                <CheckBox
-                    label={ label }
-                    name={ name }
-                    value={ this.state.response[name] }
-                    handleChange={ this.handleChange(name, fieldIndex) }
-                    onBlur={ this.onBlur(name, fieldIndex) } />
-              );
-              break;
-            }
-            default:
-              break;
-          }
-          const { valid, message } = this.state.validation[name];
-          return (
-            <div id={ name } key={ name } className="form-group">
-              { type !== 'checkbox' && <label htmlFor={ name }>{ label }</label> }
-              <div className="input-error-container">
-                { inputComponent }
-                <CSSTransitionGroup
-                    transitionName="show-error"
-                    transitionEnterTimeout={0}
-                    transitionLeaveTimeout={0}>
-                  { !valid && <div className="error-message" key="error">{ message }</div> }
-                </CSSTransitionGroup>
-              </div>
-            </div>
-          );
-        })}
-        <input type="button" value="Submit!" className="submit-button" onClick={ this.submit } />
+      <form className="full-form">
+        <div className="form-row">
+          <FormGroup type="numeric" label="Current Age" />
+          <FormGroup type="choice" label="Sex" choices={['Male', 'Female']} />
+          <FormGroup type="bool" label="Married" />
+        </div>
+        <div className="form-row">
+          <FormGroup type="choice" label="Ethnicity" choices={['Afro-Caribbean', 'Indo-Caribbean', 'Mixed-Caribbean']} wide={true} />
+          <FormGroup type="choice" label="Level of Education" choices={['Pre-Seconday', 'Secondary', 'Tertiary']} wide={true} />
+        </div>
+        <div className="divider"></div>
+        <div className="form-row">
+          <FormGroup type="numeric" label="Total Cholesterol" subText="mg/dL" />
+          <FormGroup type="numeric" label="HDL Cholesterol" subText="mg/dL" />
+          <FormGroup type="numeric" label="LDL Cholesterol" subText="mg/dL" />
+        </div>
+        <div className="form-row">
+          <FormGroup type="numeric" label="Systolic Blood Pressure" subText="mm Hg" />
+          <FormGroup type="numeric" label="Diastolic Blood Pressure" subText="mm Hg" />
+          <div className="spacer"></div>
+        </div>
+        <div className="divider"></div>
+        <div className="form-row">
+          <FormGroup type="bool" label="History of High Cholesterol" />
+          <FormGroup type="choice" label="Smoker" choices={['Non-Smoker', 'Ex-Smoker', 'Smoker']} wide={true} />
+          <div className="spacer"></div>
+        </div>
+        <div className="form-row">
+          <FormGroup type="bool" label="History of Atrial Fibrillation" />
+          <FormGroup type="bool" label="History of Hypertension" />
+          <FormGroup type="bool" label="History of Cardiovascular Disease in Family" wide={true} />
+        </div>
       </form>
     );
   }
