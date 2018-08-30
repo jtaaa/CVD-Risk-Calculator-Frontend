@@ -17,13 +17,13 @@ label {
   font-size: .8em;
 }
 
-input {
+.form-group > input {
   width: 100%;
 }
 
 .button-list {
   display: flex;
 }
-input[type=button] {
+.button-list > input[type=button] {
   flex: 1;
 }
