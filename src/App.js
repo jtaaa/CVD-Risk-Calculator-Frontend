@@ -43,7 +43,7 @@ class App extends Component {
           <div className="info-form">
             <InfoForm
                 fields={ fields }
-                onSubmit={ data => getScore(data, true).then(({ data: score }) => this.setScoreAndToSubmit(score)) } />
+                submit={ data => getScore(data, true).then(({ data: score }) => this.setScoreAndToSubmit(score)).catch(e => console.log(e)) } />
           </div>
         </div>
       </div>
