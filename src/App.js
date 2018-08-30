@@ -39,6 +39,7 @@ class App extends Component {
             <h3>How to get Cholestoral Levels</h3>
             <p>See your doctor to get a lipid profile and your blood pressure readings.</p>
           </div>
+          <div className="small-screen-spacer"></div>
           <div className="info-form">
             <InfoForm
                 fields={ fields }
