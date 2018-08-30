@@ -30,18 +30,6 @@
   margin: 0 2em;
 }
 
-.score-card {
-  margin-top: 200px;
-  padding: 2em;
-  border-radius: .25em;
-  border: 1px solid #c2c2c2;
-}
-
-.score-message {
-  font-size: 1.25em;
-  margin-bottom: 2em;
-}
-
 .small-screen-spacer {
   margin: 2em 0;
   border-bottom: 1px solid grey;
