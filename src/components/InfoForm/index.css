@@ -1,7 +1,14 @@
 .full-form {
   display: flex;
+  height: 100%;
   flex-direction: column;
   justify-content: space-between;
+  padding-bottom: 2em;
+  box-sizing: border-box;
+}
+
+.section-title {
+  margin-left: 1em;
 }
 
 .form-row {
@@ -18,6 +25,11 @@
   flex: 3;
   margin: 0 1em;
   min-width: 15em;
+}
+
+.submit-button {
+  width: 75px;
+  align-self: flex-end;
 }
 /* 
 .form-group {
