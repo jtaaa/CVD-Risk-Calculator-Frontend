@@ -1,3 +1,6 @@
+# Cardiovascular Disease Risk Calculator
+A demo of the project can be found at http://jallum.com/CVD-Risk-Calculator-Frontend/.
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
