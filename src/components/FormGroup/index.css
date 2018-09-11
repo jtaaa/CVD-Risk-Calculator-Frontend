@@ -36,6 +36,9 @@ label {
 .button-list > input[type=button]:focus {
   border-color: rgba(0, 128, 0, 0.151);
 }
+input[type=button]:focus {
+  border-color: rgba(0, 128, 0, 0.151);
+}
 .button-list > .selected {
   background-color: rgba(0, 128, 0, 0.308);
   border-color: rgba(0, 128, 0, 0.151);
